@@ -164,14 +164,8 @@ findPeakWidth <- function(approvScorePeaks,
 
             checkThisBound <- peakBounds[which.max(peakBounds$total)[1],]
 
-            rtUpper <- header$retentionTime[grep(paste0("scanId=","\\b",
-                                                checkThisBound$upperBound,
-                                                                "\\b"),
-                                                         header$spectrumId)]
-            rtLower <- header$retentionTime[grep(paste0("scanId=","\\b",
-                                                checkThisBound$lowerBound,
-                                                                "\\b"),
-                                                         header$spectrumId)]
+            rtUpper <- header$retentionTime[grep(checkThisBound$upperBound,header$spectrumId)]
+            rtLower <- header$retentionTime[grep(checkThisBound$lowerBound,header$spectrumId)]
             maxPw <- rtUpper - rtLower
         }
 
