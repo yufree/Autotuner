@@ -76,7 +76,7 @@ checkBounds <- function(mass,
     if(is.na(nextIndex)) {
         ## hack for netCDF files
         nextIndex <- suppressWarnings(as.numeric(
-            sub("scan=", "",header$spectrumId[adjIndex])))
+            sub("scan=|scanId", "",header$spectrumId[adjIndex])))
     }
 
     peakMatrix <- data.frame(mzDb[[adjIndex]])
